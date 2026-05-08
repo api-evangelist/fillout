@@ -3,7 +3,11 @@ url: https://raw.githubusercontent.com/api-evangelist/fillout/refs/heads/main/ap
 name: Fillout
 x-type: company
 description: >-
-  Fillout is a form builder with deep native integrations into Airtable, Notion, Salesforce, HubSpot, and Google Sheets — focused on connected data workflows.
+  Fillout is a form builder with deep native integrations into Airtable, Notion,
+  Salesforce, HubSpot and Google Sheets — focused on connected data workflows.
+  The Fillout REST API exposes forms and submissions endpoints under
+  /v1/api/. Bearer-token authentication via API keys generated in the Fillout
+  developer settings.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Forms
@@ -11,13 +15,44 @@ tags:
   - No-Code
   - Airtable
   - Notion
+  - Salesforce
+  - HubSpot
+  - Workflow
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: fillout:rest
+    name: Fillout REST API
+    description: >-
+      REST API for retrieving forms and submissions. Bearer API key auth.
+      Endpoints under /v1/api/ — /forms, /forms/{formId}, /forms/{formId}/
+      submissions, etc. Self-hosted Fillout and the EU agent return their own
+      base URL via the dashboard.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://www.fillout.com/help/fillout-rest-api
+    baseURL: https://api.fillout.com/v1/api
+    tags:
+      - REST
+      - Forms
+      - Submissions
+      - Bearer
+    properties:
+      - type: Documentation
+        url: https://www.fillout.com/help/fillout-rest-api
+      - type: Authentication
+        url: https://build.fillout.com/home/settings/developer
+      - type: SDK
+        url: https://www.npmjs.com/package/@fillout/api
 common:
   - type: Website
     url: https://www.fillout.com/
+  - type: Documentation
+    url: https://www.fillout.com/help/
+  - type: Pricing
+    url: https://www.fillout.com/pricing
+  - type: HelpCenter
+    url: https://www.fillout.com/help
   - type: Plans
     url: plans/fillout-plans-pricing.yml
   - type: RateLimits

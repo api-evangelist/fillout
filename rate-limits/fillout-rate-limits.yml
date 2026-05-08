@@ -5,7 +5,7 @@ provider: Fillout
 providerId: fillout
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - Forms
 - Surveys
@@ -15,21 +15,49 @@ tags:
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for Fillout. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: >-
+  Fillout REST API endpoints are limited to no more than 30 requests per
+  second per account / API key. Above the limit, requests are rejected with
+  HTTP 429. Plan-level monthly response caps act as a secondary, business-
+  level throttle.
+notes: >-
+  Public docs explicitly state the 30 req/s cap. Self-hosted Fillout and the
+  EU agent share the same limit.
 sources:
-- https://www.fillout.com/
+- https://www.fillout.com/help/fillout-rest-api
 responseCodes:
   throttled: 429
+headers:
+- name: Retry-After
+  description: Seconds to wait before retrying after a 429.
 limits:
-- name: Default
+- name: REST API per account/API key
   scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  metric: requests
+  limit: 30
+  timeFrame: 1s
+- name: Free plan responses
+  scope: account
+  metric: responses/month
+  limit: 1000
+- name: Starter plan responses
+  scope: account
+  metric: responses/month
+  limit: 2000
+- name: Pro plan responses
+  scope: account
+  metric: responses/month
+  limit: 5000
+- name: Business plan responses
+  scope: account
+  metric: responses/month
+  limit: -1
+  notes: Unlimited.
 policies:
 - name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  description: Honor Retry-After on 429; use exponential backoff with jitter.
+- name: Region selection
+  description: EU agent and self-hosted return their own base URL via the dashboard.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

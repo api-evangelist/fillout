@@ -59,6 +59,14 @@ common:
     url: rate-limits/fillout-rate-limits.yml
   - type: FinOps
     url: finops/fillout-finops.yml
+  - type: Integrations
+    url: https://www.fillout.com/integrations
+integrations:
+  - name: HubSpot
+  - name: Stripe
+  - name: Google Sheets
+  - name: Salesforce
+  - name: Clearbit Enrich form data with Clearbit.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

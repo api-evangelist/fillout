@@ -1,7 +1,7 @@
 aid: fillout
 url: https://raw.githubusercontent.com/api-evangelist/fillout/refs/heads/main/apis.yml
 name: Fillout
-x-type: company
+kind: company
 description: >-
   Fillout is a form builder with deep native integrations into Airtable, Notion,
   Salesforce, HubSpot and Google Sheets — focused on connected data workflows.

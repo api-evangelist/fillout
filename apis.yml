@@ -45,6 +45,10 @@ apis:
       - type: SDK
         url: https://www.npmjs.com/package/@fillout/api
 common:
+  - type: GitHubOrganization
+    url: https://github.com/fillout
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/fillout
   - type: Website
     url: https://www.fillout.com/
   - type: Documentation

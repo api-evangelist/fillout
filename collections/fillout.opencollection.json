@@ -1,0 +1,228 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fillout REST API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get all forms",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.fillout.com/v1/api/forms"
+      },
+      "docs": "Returns a list of all your forms"
+    },
+    {
+      "info": {
+        "name": "Get form metadata",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.fillout.com/v1/api/forms/:formId",
+        "params": [
+          {
+            "name": "formId",
+            "value": "",
+            "type": "path",
+            "description": "The public ID of your form"
+          }
+        ]
+      },
+      "docs": "Given the formId, returns all the questions in that form and other metadata"
+    },
+    {
+      "info": {
+        "name": "Get all submissions",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.fillout.com/v1/api/forms/:formId/submissions",
+        "params": [
+          {
+            "name": "formId",
+            "value": "",
+            "type": "path",
+            "description": "The public identifier of the form"
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "The maximum number of submissions to retrieve per request"
+          },
+          {
+            "name": "afterDate",
+            "value": "",
+            "type": "query",
+            "description": "A date string to filter submissions submitted after this date"
+          },
+          {
+            "name": "beforeDate",
+            "value": "",
+            "type": "query",
+            "description": "A date string to filter submissions submitted before this date"
+          },
+          {
+            "name": "offset",
+            "value": "",
+            "type": "query",
+            "description": "The starting position from which to fetch the submissions"
+          },
+          {
+            "name": "status",
+            "value": "",
+            "type": "query",
+            "description": "Pass 'in_progress' to get unfinished submissions. By default, only 'finished' submissions are returned"
+          },
+          {
+            "name": "includeEditLink",
+            "value": "",
+            "type": "query",
+            "description": "Pass true to include a link to edit the submission as 'editLink'"
+          },
+          {
+            "name": "includePreview",
+            "value": "",
+            "type": "query",
+            "description": "Pass true to include preview responses"
+          },
+          {
+            "name": "sort",
+            "value": "",
+            "type": "query",
+            "description": "Sort order for the submissions"
+          },
+          {
+            "name": "search",
+            "value": "",
+            "type": "query",
+            "description": "Filter for submissions containing a string of text"
+          }
+        ]
+      },
+      "docs": "Returns a list of all submissions for a given form"
+    },
+    {
+      "info": {
+        "name": "Create submissions",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.fillout.com/v1/api/forms/:formId/submissions",
+        "params": [
+          {
+            "name": "formId",
+            "value": "",
+            "type": "path",
+            "description": "The public identifier of the form"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create new submissions for a form"
+    },
+    {
+      "info": {
+        "name": "Get submission by ID",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.fillout.com/v1/api/forms/:formId/submissions/:submissionId",
+        "params": [
+          {
+            "name": "formId",
+            "value": "",
+            "type": "path",
+            "description": "The public identifier of the form"
+          },
+          {
+            "name": "submissionId",
+            "value": "",
+            "type": "path",
+            "description": "The identifier of the submission"
+          },
+          {
+            "name": "includeEditLink",
+            "value": "",
+            "type": "query",
+            "description": "Pass true to include a link to edit the submission as 'editLink'"
+          }
+        ]
+      },
+      "docs": "Returns a single submission by its ID"
+    },
+    {
+      "info": {
+        "name": "Delete submission by ID",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://api.fillout.com/v1/api/forms/:formId/submissions/:submissionId",
+        "params": [
+          {
+            "name": "formId",
+            "value": "",
+            "type": "path",
+            "description": "The public identifier of the form"
+          },
+          {
+            "name": "submissionId",
+            "value": "",
+            "type": "path",
+            "description": "The identifier of the submission"
+          }
+        ]
+      },
+      "docs": "Deletes a submission by its ID"
+    },
+    {
+      "info": {
+        "name": "Create a webhook",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.fillout.com/v1/api/webhook/create",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Creates a webhook for a given form"
+    },
+    {
+      "info": {
+        "name": "Remove a webhook",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.fillout.com/v1/api/webhook/delete",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Removes a webhook"
+    }
+  ],
+  "bundled": true
+}

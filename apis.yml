@@ -42,7 +42,7 @@ apis:
         url: https://www.fillout.com/help/fillout-rest-api
       - type: Authentication
         url: https://build.fillout.com/home/settings/developer
-      - type: SDK
+      - type: SDKs
         url: https://www.npmjs.com/package/@fillout/api
 common:
   - type: GitHubOrganization

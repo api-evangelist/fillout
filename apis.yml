@@ -45,6 +45,10 @@ apis:
       - type: SDKs
         url: https://www.npmjs.com/package/@fillout/api
 common:
+  - type: DomainSecurity
+    url: security/fillout-domain-security.yml
+  - type: Authentication
+    url: authentication/fillout-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/fillout
   - type: LinkedIn
@@ -65,6 +69,8 @@ common:
     url: finops/fillout-finops.yml
   - type: Integrations
     url: https://www.fillout.com/integrations
+  - type: Blog
+    url: https://www.fillout.com/blog
 integrations:
   - name: HubSpot
   - name: Stripe

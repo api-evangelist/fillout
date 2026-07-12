@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/fillout-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: 'Enter your [Fillout API key](https://build.fillout.com/home/settings/developer).
+    Format: Bearer <api_key>'
+  sources:
+  - openapi/fillout-openapi.yml

@@ -1,0 +1,92 @@
+openapi: 3.1.0
+info:
+  title: Fillout REST Forms Webhook API
+  description: 'A REST API for managing forms, submissions, and webhooks in Fillout
+
+
+    OpenAPI 3.1 spec mirrored from the public Fillout REST API specification at https://fillout.com/help/openapi.json.'
+  version: 1.0.0
+servers:
+- url: https://api.fillout.com/v1/api
+  description: Fillout REST API base URL
+security:
+- bearerAuth: []
+tags:
+- name: Webhook
+paths:
+  /webhook/create:
+    post:
+      summary: Create a webhook
+      description: Creates a webhook for a given form
+      operationId: createWebhook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateWebhookRequest'
+      responses:
+        '200':
+          description: Webhook created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateWebhookResponse'
+      tags:
+      - Webhook
+  /webhook/delete:
+    post:
+      summary: Remove a webhook
+      description: Removes a webhook
+      operationId: removeWebhook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveWebhookRequest'
+      responses:
+        '200':
+          description: Webhook removed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+      - Webhook
+components:
+  schemas:
+    RemoveWebhookRequest:
+      type: object
+      properties:
+        webhookId:
+          type: string
+          description: The ID of the webhook you received when you created it
+      required:
+      - webhookId
+    CreateWebhookResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The webhook ID
+      required:
+      - id
+    CreateWebhookRequest:
+      type: object
+      properties:
+        formId:
+          type: string
+          description: The public identifier of the form for which you want to create a webhook
+        url:
+          type: string
+          format: uri
+          description: The endpoint where you'd like to listen for submissions
+      required:
+      - formId
+      - url
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Enter your [Fillout API key](https://build.fillout.com/home/settings/developer). Format: Bearer <api_key>'

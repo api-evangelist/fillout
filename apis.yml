@@ -8,7 +8,20 @@ description: >-
   The Fillout REST API exposes forms and submissions endpoints under
   /v1/api/. Bearer-token authentication via API keys generated in the Fillout
   developer settings.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/fillout.png
 tags:
   - Forms
   - Surveys
@@ -22,28 +35,47 @@ created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
 apis:
-  - aid: fillout:rest
-    name: Fillout REST API
-    description: >-
-      REST API for retrieving forms and submissions. Bearer API key auth.
-      Endpoints under /v1/api/ — /forms, /forms/{formId}, /forms/{formId}/
-      submissions, etc. Self-hosted Fillout and the EU agent return their own
-      base URL via the dashboard.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.fillout.com/help/fillout-rest-api
-    baseURL: https://api.fillout.com/v1/api
-    tags:
-      - REST
-      - Forms
-      - Submissions
-      - Bearer
-    properties:
-      - type: Documentation
-        url: https://www.fillout.com/help/fillout-rest-api
-      - type: Authentication
-        url: https://build.fillout.com/home/settings/developer
-      - type: SDKs
-        url: https://www.npmjs.com/package/@fillout/api
+- aid: fillout:rest
+  name: Fillout REST API
+  description: >-
+    REST API for retrieving forms and submissions. Bearer API key auth. Endpoints under /v1/api/ — /forms,
+    /forms/{formId}, /forms/{formId}/ submissions, etc. Self-hosted Fillout and the EU agent return their
+    own base URL via the dashboard.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.fillout.com/help/fillout-rest-api
+  baseURL: https://api.fillout.com/v1/api
+  tags:
+  - REST
+  - Forms
+  - Submissions
+  - Bearer
+  properties:
+  - type: Documentation
+    url: https://www.fillout.com/help/fillout-rest-api
+  - type: Authentication
+    url: https://build.fillout.com/home/settings/developer
+  - type: SDKs
+    url: https://www.npmjs.com/package/@fillout/api
+- aid: fillout:fillout-forms-api
+  name: Fillout Forms API
+  description: The Forms API from Fillout — 4 operation(s) for forms.
+  humanURL: https://www.fillout.com/help/fillout-rest-api
+  baseURL: https://api.fillout.com/v1/api
+  tags:
+  - Forms
+  properties:
+  - type: OpenAPI
+    url: openapi/fillout-forms-api-openapi.yml
+- aid: fillout:fillout-webhook-api
+  name: Fillout Webhook API
+  description: The Webhook API from Fillout — 2 operation(s) for webhook.
+  humanURL: https://www.fillout.com/help/fillout-rest-api
+  baseURL: https://api.fillout.com/v1/api
+  tags:
+  - Webhook
+  properties:
+  - type: OpenAPI
+    url: openapi/fillout-webhook-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/fillout-agentic-access.yml

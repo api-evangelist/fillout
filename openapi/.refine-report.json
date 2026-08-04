@@ -1,0 +1,16 @@
+{
+  "provider": "fillout",
+  "sources": [
+    "fillout-forms-api-openapi.yml",
+    "fillout-webhook-api-openapi.yml"
+  ],
+  "outputs": [
+    "fillout-forms-api-openapi.yml",
+    "fillout-webhook-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

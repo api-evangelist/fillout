@@ -1,0 +1,754 @@
+{
+  "item": [
+    {
+      "id": "e71c2bfa-f03e-4557-a781-7ed58ff73e9b",
+      "name": "Forms",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3f69106e-f43b-4929-ad84-267d9f5c9e9d",
+          "name": "Get all forms",
+          "request": {
+            "name": "Get all forms",
+            "description": {
+              "content": "Returns a list of all your forms",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0265522e-afd6-4d0b-9825-3d8505f123bb",
+              "name": "List of forms",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"formId\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"formId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37f7dd6f-0585-4ad1-922f-8a65020637c9",
+          "name": "Get form metadata",
+          "request": {
+            "name": "Get form metadata",
+            "description": {
+              "content": "Given the formId, returns all the questions in that form and other metadata",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                ":formId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "formId",
+                  "description": "(Required) The public ID of your form"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "793cd873-6b43-422f-8439-425eb770c067",
+              "name": "Form metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    ":formId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "formId",
+                      "description": "(Required) The public ID of your form"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"questions\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"Matrix\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"URLInput\"\n    }\n  ],\n  \"calculations\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"text\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"number\"\n    }\n  ],\n  \"urlParameters\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"scheduling\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"payments\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"quiz\": {\n    \"enabled\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6721b25e-222f-43b1-9cb7-b8cb0ce68e26",
+          "name": "Get all submissions",
+          "request": {
+            "name": "Get all submissions",
+            "description": {
+              "content": "Returns a list of all submissions for a given form",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                ":formId",
+                "submissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "The maximum number of submissions to retrieve per request"
+                },
+                {
+                  "disabled": false,
+                  "key": "afterDate",
+                  "value": "<dateTime>",
+                  "description": "A date string to filter submissions submitted after this date"
+                },
+                {
+                  "disabled": false,
+                  "key": "beforeDate",
+                  "value": "<dateTime>",
+                  "description": "A date string to filter submissions submitted before this date"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "The starting position from which to fetch the submissions"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Pass 'in_progress' to get unfinished submissions. By default, only 'finished' submissions are returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeEditLink",
+                  "value": "<boolean>",
+                  "description": "Pass true to include a link to edit the submission as 'editLink'"
+                },
+                {
+                  "disabled": false,
+                  "key": "includePreview",
+                  "value": "<boolean>",
+                  "description": "Pass true to include preview responses"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "asc",
+                  "description": "Sort order for the submissions"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Filter for submissions containing a string of text"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "formId",
+                  "description": "(Required) The public identifier of the form"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc5e1c87-ed9c-4118-b013-0d30d86b51e3",
+              "name": "List of submissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    ":formId",
+                    "submissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "afterDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "beforeDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeEditLink",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includePreview",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "formId",
+                      "description": "(Required) The public identifier of the form"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"responses\": [\n    {\n      \"submissionId\": \"string\",\n      \"submissionTime\": \"2008-09-01T00:48:42.403Z\",\n      \"questions\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"type\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"type\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"lastUpdatedAt\": \"2013-02-19T14:37:25.886Z\",\n      \"calculations\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"type\": \"duration\",\n          \"value\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"type\": \"duration\",\n          \"value\": \"string\"\n        }\n      ],\n      \"urlParameters\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"scheduling\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"fullName\": \"string\",\n            \"email\": \"h39J@quxdBx.hq\",\n            \"timezone\": \"string\",\n            \"eventStartTime\": \"2008-11-06T23:59:50.454Z\",\n            \"eventEndTime\": \"1960-08-26T10:55:04.292Z\",\n            \"eventId\": \"string\",\n            \"eventUrl\": \"http://IkCYqBypGgFbpftwQwrbUQwxmgRUwq.qsE86rJRhrBh1A,Me2tkjRrKJ.T7G2cRtD8mLw2k2vZx\",\n            \"rescheduleOrCancelUrl\": \"https://YdcFotTdBOuBzeZQ.rohgA6A6iHHAP7kzQSR-VInGxpSTjkXp+yJwVymHGsT4tA2-\",\n            \"userId\": 7546,\n            \"scheduledUserEmail\": \"iKpNLhR7IL@KzjeRkLgGqCbHHNcHMaFwpb.ifc\",\n            \"meetingNotes\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"fullName\": \"string\",\n            \"email\": \"nloRZ426VJ@NOLgIutSHwuAdEhm.ga\",\n            \"timezone\": \"string\",\n            \"eventStartTime\": \"2017-12-26T11:14:50.567Z\",\n            \"eventEndTime\": \"1950-10-07T18:53:22.012Z\",\n            \"eventId\": \"string\",\n            \"eventUrl\": \"http://JgYfojonsKVkfbiceOrirBfASuEDC.thyyhgbPupF2K.lpSictS.ohuC3PNNCyP\",\n            \"rescheduleOrCancelUrl\": \"https://RBMBbcukBDcKKtRGjDfobxjcMxpRa.opcS.l4YMChdWBx8ahj,dSChw3Nvql4\",\n            \"userId\": 7896,\n            \"scheduledUserEmail\": \"dOIBH4ERug@oTxHIMXipffBv.of\",\n            \"meetingNotes\": \"string\"\n          }\n        }\n      ],\n      \"payments\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"paymentId\": \"string\",\n            \"stripeCustomerId\": \"string\",\n            \"stripeCustomerUrl\": \"https://BPHZUkrYNY.gbosIhwES4oe2\",\n            \"stripePaymentUrl\": \"https://YrYtisooxBJZIpiniNzKjdPYF.bgakVr25Yr4ZEH-FavpIGUtn.K3Y0vM5TitMOREodSQvTiTG9g47AN7kBDTNn9-\",\n            \"totalAmount\": 6156,\n            \"currency\": \"string\",\n            \"email\": \"uP13DZCIXPznh5@ir.jcj\",\n            \"discountCode\": \"string\",\n            \"status\": \"string\",\n            \"stripeSubscriptionId\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"paymentId\": \"string\",\n            \"stripeCustomerId\": \"string\",\n            \"stripeCustomerUrl\": \"https://obZVjVoOtqsMXCVk.qctghJVKiLoEH4Th1NBRJiCLxRf.x8l\",\n            \"stripePaymentUrl\": \"https://LRHEa.yiaxZ5bTINtfTFw+F-rdX08ncIt7p0GIayp.FYz,WpLQt5u2WIJ7\",\n            \"totalAmount\": 1878,\n            \"currency\": \"string\",\n            \"email\": \"rJAKNJ@wuJbaaazzWMoewWxca.ema\",\n            \"discountCode\": \"string\",\n            \"status\": \"string\",\n            \"stripeSubscriptionId\": \"string\"\n          }\n        }\n      ],\n      \"quiz\": {\n        \"score\": 9765,\n        \"maxScore\": 1820\n      },\n      \"login\": {\n        \"email\": \"7LGEbEdCk@TxyJRLoeJwqNFSWwIoCkmSRxKTkLGPkt.plg\"\n      }\n    },\n    {\n      \"submissionId\": \"string\",\n      \"submissionTime\": \"2007-12-21T04:31:17.545Z\",\n      \"questions\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"type\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"type\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"lastUpdatedAt\": \"1964-05-29T10:16:44.008Z\",\n      \"calculations\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"type\": \"text\",\n          \"value\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"type\": \"text\",\n          \"value\": \"string\"\n        }\n      ],\n      \"urlParameters\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"scheduling\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"fullName\": \"string\",\n            \"email\": \"iNyl5Wl-Fi2U2@AnPzYZPlI.ei\",\n            \"timezone\": \"string\",\n            \"eventStartTime\": \"1949-09-03T20:51:24.572Z\",\n            \"eventEndTime\": \"1965-10-07T08:52:04.006Z\",\n            \"eventId\": \"string\",\n            \"eventUrl\": \"https://TKXJySfeil.sqwqY,I79Yzk1CeAmeY\",\n            \"rescheduleOrCancelUrl\": \"http://TzOcGZqgRFPgQPBxedQPH.oplU.JDVIUYZ.aKTH6AFEeIYypCLRW,XsHr7K-BWC\",\n            \"userId\": 9441,\n            \"scheduledUserEmail\": \"vwZD0FPS2n@ZwSLpKxYvQzkZjXCHQTf.ua\",\n            \"meetingNotes\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"fullName\": \"string\",\n            \"email\": \"KNemNbcz4a0d@kDPaOjBrtJMOFHCtTRBdz.gnt\",\n            \"timezone\": \"string\",\n            \"eventStartTime\": \"2018-07-18T23:26:35.440Z\",\n            \"eventEndTime\": \"1966-01-11T06:39:33.064Z\",\n            \"eventId\": \"string\",\n            \"eventUrl\": \"http://KTxcImSzcSkPrEwztnMOcewtgtx.qhwRdJsq2Rx.g0XnjSRoukOeJgeuUwkrHqzy0uJotGpRouM4aFnJ.j\",\n            \"rescheduleOrCancelUrl\": \"https://n.yawnsRX+Qoorp2+JWhOoNpnfd,zn.wQgXQu5JQb01CzDTl8Ri\",\n            \"userId\": 3493,\n            \"scheduledUserEmail\": \"3mEyWdX4Xm08@kNiCiGnZntbXdRsJCXiLYShKgCztMHLLY.vna\",\n            \"meetingNotes\": \"string\"\n          }\n        }\n      ],\n      \"payments\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"paymentId\": \"string\",\n            \"stripeCustomerId\": \"string\",\n            \"stripeCustomerUrl\": \"http://ceSqYyzWflhiIdIXLkqIMPKBHAiTnFVG.eitWtnNwAhdYm9QYsJXfmZL7Fq4pLVvl6.23RU.lBozCCrh+udCC9F\",\n            \"stripePaymentUrl\": \"https://mFwSNiV.qdiGlUL9B\",\n            \"totalAmount\": 3169,\n            \"currency\": \"string\",\n            \"email\": \"dEDuEa7@QhOjZyVTSfJRPkIhxiIdLUQcvSw.vl\",\n            \"discountCode\": \"string\",\n            \"status\": \"string\",\n            \"stripeSubscriptionId\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"paymentId\": \"string\",\n            \"stripeCustomerId\": \"string\",\n            \"stripeCustomerUrl\": \"https://lLGiOxKhQPVOLGMkEOQQaEuIKYqRKi.ejaztpAxoDT8QvFZ3fGL4FW+Lz\",\n            \"stripePaymentUrl\": \"https://BSOlvvaJovxNEHxGXQPHd.ezkuqHYz8bSTsMVPK+LfW08uPjYGO\",\n            \"totalAmount\": 9012,\n            \"currency\": \"string\",\n            \"email\": \"94bdSJDUFOcEvaq@w.pyew\",\n            \"discountCode\": \"string\",\n            \"status\": \"string\",\n            \"stripeSubscriptionId\": \"string\"\n          }\n        }\n      ],\n      \"quiz\": {\n        \"score\": 165,\n        \"maxScore\": 1306\n      },\n      \"login\": {\n        \"email\": \"xG5AbLGQH@zfYEl.qjk\"\n      }\n    }\n  ],\n  \"totalResponses\": 458,\n  \"pageCount\": 986\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "adaca04d-7475-4607-8d59-0c2c9ac35e11",
+          "name": "Create submissions",
+          "request": {
+            "name": "Create submissions",
+            "description": {
+              "content": "Create new submissions for a form",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                ":formId",
+                "submissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "formId",
+                  "description": "(Required) The public identifier of the form"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"submissions\": [\n    {\n      \"questions\": [\n        {\n          \"id\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"id\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"urlParameters\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"submissionTime\": \"<dateTime>\",\n      \"lastUpdatedAt\": \"<dateTime>\",\n      \"scheduling\": [\n        {\n          \"id\": \"<string>\",\n          \"value\": {\n            \"fullName\": \"<string>\",\n            \"email\": \"<email>\",\n            \"eventStartTime\": \"<dateTime>\",\n            \"eventEndTime\": \"<dateTime>\",\n            \"timezone\": \"<string>\",\n            \"userId\": \"<integer>\",\n            \"scheduledUserEmail\": \"<email>\",\n            \"eventId\": \"<string>\",\n            \"eventUrl\": \"<uri>\",\n            \"rescheduleOrCancelUrl\": \"<uri>\",\n            \"meetingNotes\": \"<string>\"\n          }\n        },\n        {\n          \"id\": \"<string>\",\n          \"value\": {\n            \"fullName\": \"<string>\",\n            \"email\": \"<email>\",\n            \"eventStartTime\": \"<dateTime>\",\n            \"eventEndTime\": \"<dateTime>\",\n            \"timezone\": \"<string>\",\n            \"userId\": \"<integer>\",\n            \"scheduledUserEmail\": \"<email>\",\n            \"eventId\": \"<string>\",\n            \"eventUrl\": \"<uri>\",\n            \"rescheduleOrCancelUrl\": \"<uri>\",\n            \"meetingNotes\": \"<string>\"\n          }\n        }\n      ],\n      \"payments\": [\n        {\n          \"id\": \"<string>\",\n          \"value\": {\n            \"paymentId\": \"<string>\",\n            \"stripeCustomerId\": \"<string>\",\n            \"stripeCustomerUrl\": \"<uri>\",\n            \"stripePaymentUrl\": \"<uri>\",\n            \"totalAmount\": \"<integer>\",\n            \"currency\": \"<string>\",\n            \"email\": \"<email>\",\n            \"status\": \"<string>\",\n            \"stripeSubscriptionId\": \"<string>\"\n          }\n        },\n        {\n          \"id\": \"<string>\",\n          \"value\": {\n            \"paymentId\": \"<string>\",\n            \"stripeCustomerId\": \"<string>\",\n            \"stripeCustomerUrl\": \"<uri>\",\n            \"stripePaymentUrl\": \"<uri>\",\n            \"totalAmount\": \"<integer>\",\n            \"currency\": \"<string>\",\n            \"email\": \"<email>\",\n            \"status\": \"<string>\",\n            \"stripeSubscriptionId\": \"<string>\"\n          }\n        }\n      ],\n      \"login\": {\n        \"email\": \"<email>\"\n      }\n    },\n    {\n      \"questions\": [\n        {\n          \"id\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"id\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"urlParameters\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"submissionTime\": \"<dateTime>\",\n      \"lastUpdatedAt\": \"<dateTime>\",\n      \"scheduling\": [\n        {\n          \"id\": \"<string>\",\n          \"value\": {\n            \"fullName\": \"<string>\",\n            \"email\": \"<email>\",\n            \"eventStartTime\": \"<dateTime>\",\n            \"eventEndTime\": \"<dateTime>\",\n            \"timezone\": \"<string>\",\n            \"userId\": \"<integer>\",\n            \"scheduledUserEmail\": \"<email>\",\n            \"eventId\": \"<string>\",\n            \"eventUrl\": \"<uri>\",\n            \"rescheduleOrCancelUrl\": \"<uri>\",\n            \"meetingNotes\": \"<string>\"\n          }\n        },\n        {\n          \"id\": \"<string>\",\n          \"value\": {\n            \"fullName\": \"<string>\",\n            \"email\": \"<email>\",\n            \"eventStartTime\": \"<dateTime>\",\n            \"eventEndTime\": \"<dateTime>\",\n            \"timezone\": \"<string>\",\n            \"userId\": \"<integer>\",\n            \"scheduledUserEmail\": \"<email>\",\n            \"eventId\": \"<string>\",\n            \"eventUrl\": \"<uri>\",\n            \"rescheduleOrCancelUrl\": \"<uri>\",\n            \"meetingNotes\": \"<string>\"\n          }\n        }\n      ],\n      \"payments\": [\n        {\n          \"id\": \"<string>\",\n          \"value\": {\n            \"paymentId\": \"<string>\",\n            \"stripeCustomerId\": \"<string>\",\n            \"stripeCustomerUrl\": \"<uri>\",\n            \"stripePaymentUrl\": \"<uri>\",\n            \"totalAmount\": \"<integer>\",\n            \"currency\": \"<string>\",\n            \"email\": \"<email>\",\n            \"status\": \"<string>\",\n            \"stripeSubscriptionId\": \"<string>\"\n          }\n        },\n        {\n          \"id\": \"<string>\",\n          \"value\": {\n            \"paymentId\": \"<string>\",\n            \"stripeCustomerId\": \"<string>\",\n            \"stripeCustomerUrl\": \"<uri>\",\n            \"stripePaymentUrl\": \"<uri>\",\n            \"totalAmount\": \"<integer>\",\n            \"currency\": \"<string>\",\n            \"email\": \"<email>\",\n            \"status\": \"<string>\",\n            \"stripeSubscriptionId\": \"<string>\"\n          }\n        }\n      ],\n      \"login\": {\n        \"email\": \"<email>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "657f0208-10ef-4e21-bd4c-428062610b35",
+              "name": "Created submissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    ":formId",
+                    "submissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "formId",
+                      "description": "(Required) The public identifier of the form"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"submissions\": [\n    {\n      \"questions\": [\n        {\n          \"id\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"id\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"urlParameters\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"submissionTime\": \"1974-03-14T23:17:43.466Z\",\n      \"lastUpdatedAt\": \"2017-01-22T02:42:01.437Z\",\n      \"scheduling\": [\n        {\n          \"id\": \"string\",\n          \"value\": {\n            \"fullName\": \"string\",\n            \"email\": \"kRd@uYxkBqijWjKzEo.zi\",\n            \"eventStartTime\": \"1951-08-06T02:16:31.177Z\",\n            \"eventEndTime\": \"1996-05-20T04:58:47.469Z\",\n            \"timezone\": \"string\",\n            \"userId\": 1733,\n            \"scheduledUserEmail\": \"MIDt5tm@hLQezQWmpOtJ.hrn\",\n            \"eventId\": \"string\",\n            \"eventUrl\": \"https://rIIKizHMayxPkkFgdu.uowFORAjXJA6SfUapq39.WZaommghyGzCWN68vG8Pd\",\n            \"rescheduleOrCancelUrl\": \"https://DFFrmSvMQlTKkwOVWq.uyawkyRYPdqIBz5aAu+k+6osR4i5P7lr3ZA+dputL3gS0lHSfWSJhx9GcdtET+dxNSK\",\n            \"meetingNotes\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"value\": {\n            \"fullName\": \"string\",\n            \"email\": \"nxIa8SSV9o9n@iPxPhGQhWYQtYiAgdgPQxfljIT.fn\",\n            \"eventStartTime\": \"1953-09-09T10:33:02.337Z\",\n            \"eventEndTime\": \"1996-05-19T23:11:40.253Z\",\n            \"timezone\": \"string\",\n            \"userId\": 3393,\n            \"scheduledUserEmail\": \"eaTIgTVe@jORlboxIaDAOxAXIoxJTkWvRmV.feum\",\n            \"eventId\": \"string\",\n            \"eventUrl\": \"https://glriszQYMmJIOhX.oiNYDwiVS-jqX91O8GP,ZDDsBPdpE1x-bIY,-JvLv3fafRc9v2jxakuG1nPve0O9tDp34eOWuV95c9bEH\",\n            \"rescheduleOrCancelUrl\": \"https://Pqpd.horyN-dkick,h2Is-zPKETRx-rk7R04CekRkwVXjX+J6UAQjc+.N8\",\n            \"meetingNotes\": \"string\"\n          }\n        }\n      ],\n      \"payments\": [\n        {\n          \"id\": \"string\",\n          \"value\": {\n            \"paymentId\": \"string\",\n            \"stripeCustomerId\": \"string\",\n            \"stripeCustomerUrl\": \"http://bhVjAHqSkdkoeoluRjWGdCNuWgooZV.kdAHtG-qjWyyaG+3PyNpASvwcexYiytMMenCInpWs,TvzbH77,zgBfdliSs2yLiJ58L\",\n            \"stripePaymentUrl\": \"http://ysdKuZhIgYPiHphebmtzZA.ogauVYAk7flJrtVG\",\n            \"totalAmount\": 2850,\n            \"currency\": \"string\",\n            \"email\": \"hO3XolDWiH9U0A@HMkMFbjHbuIfAMczQhQPFsp.gchv\",\n            \"status\": \"string\",\n            \"stripeSubscriptionId\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"value\": {\n            \"paymentId\": \"string\",\n            \"stripeCustomerId\": \"string\",\n            \"stripeCustomerUrl\": \"https://oHTwvWSDtwOkEHPc.pcdKHZrxrlQXR5jf9usLEzHUkGMVLYlzz6QpvvXvHzzXCqs3HnX8Go\",\n            \"stripePaymentUrl\": \"https://gGfDvoqpzEF.xjmocHIUiSwNqZE08sTqp-VB9Iq0Q.tEKgELo3slFbP,SdG8jLwJX6Z5z5mi8bplZGfkdZ\",\n            \"totalAmount\": 2200,\n            \"currency\": \"string\",\n            \"email\": \"7cD4q75iGvZ@hozGYQPBtUNaiCkEqLyNQoPY.uogj\",\n            \"status\": \"string\",\n            \"stripeSubscriptionId\": \"string\"\n          }\n        }\n      ],\n      \"login\": {\n        \"email\": \"Or6NjPp@USCDPJVhpAC.webr\"\n      }\n    },\n    {\n      \"questions\": [\n        {\n          \"id\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"id\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"urlParameters\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"submissionTime\": \"2000-09-25T13:21:50.969Z\",\n      \"lastUpdatedAt\": \"1956-12-05T17:15:20.527Z\",\n      \"scheduling\": [\n        {\n          \"id\": \"string\",\n          \"value\": {\n            \"fullName\": \"string\",\n            \"email\": \"fM9ebkVcRjO@GNyJdQhtPYIcjGoAbx.sj\",\n            \"eventStartTime\": \"1988-08-04T02:27:55.418Z\",\n            \"eventEndTime\": \"2012-06-24T21:04:43.920Z\",\n            \"timezone\": \"string\",\n            \"userId\": 3057,\n            \"scheduledUserEmail\": \"0A3KELpx-zEu@NOALrxQ.dn\",\n            \"eventId\": \"string\",\n            \"eventUrl\": \"http://EtSofIHA.bdwoXMp8Dh9EuXaj7IPogjUjwk5z2KfIUzWq3SzdCMoa2MLtwcbuf0aa.oM678do,f+lQN,bOgJpBQlJjZya\",\n            \"rescheduleOrCancelUrl\": \"https://fVYZnImAgaTlEemOAqEj.euozsb0D\",\n            \"meetingNotes\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"value\": {\n            \"fullName\": \"string\",\n            \"email\": \"hOPWxXLDPey@TICRnVCerEhUi.ff\",\n            \"eventStartTime\": \"1957-03-14T16:24:25.410Z\",\n            \"eventEndTime\": \"2013-02-18T05:31:10.861Z\",\n            \"timezone\": \"string\",\n            \"userId\": 8314,\n            \"scheduledUserEmail\": \"p2uB8O@bfsvzLItMVmhrGoa.hmf\",\n            \"eventId\": \"string\",\n            \"eventUrl\": \"https://KGbu.lai0GSJYaODx-R4MUR0O\",\n            \"rescheduleOrCancelUrl\": \"http://cWHgoBCn.adaghind+cR0HHj5EIS-DMNPM\",\n            \"meetingNotes\": \"string\"\n          }\n        }\n      ],\n      \"payments\": [\n        {\n          \"id\": \"string\",\n          \"value\": {\n            \"paymentId\": \"string\",\n            \"stripeCustomerId\": \"string\",\n            \"stripeCustomerUrl\": \"https://YzjPYg.fdHGjgvOSNbqp+HviPUWDbGmFE63WmX3OXajuLbHDXOmhfoi.cxUlO.A\",\n            \"stripePaymentUrl\": \"http://SEURCFStxDyVyYyJXHe.ymto.05SUoJ4-,IbwBH,JhCccIDaF1qwo\",\n            \"totalAmount\": 6262,\n            \"currency\": \"string\",\n            \"email\": \"2uDKof7OyfqO7I9@STajxuDq.jpl\",\n            \"status\": \"string\",\n            \"stripeSubscriptionId\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"value\": {\n            \"paymentId\": \"string\",\n            \"stripeCustomerId\": \"string\",\n            \"stripeCustomerUrl\": \"https://RxWKLiTnujxaIOsMpukRQ.utPK,gOO9YhMmd\",\n            \"stripePaymentUrl\": \"https://JuJjLNtJy.kpXrp\",\n            \"totalAmount\": 7405,\n            \"currency\": \"string\",\n            \"email\": \"DlYCwi@eDaYdAJRbQoAHbVnsGKNLneoN.ys\",\n            \"status\": \"string\",\n            \"stripeSubscriptionId\": \"string\"\n          }\n        }\n      ],\n      \"login\": {\n        \"email\": \"vY1XA2H7gXAd6@jHuEtvLzKZkhZuUpEaTPWebBR.yy\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"submissions\": [\n    {\n      \"submissionId\": \"string\",\n      \"submissionTime\": \"2013-05-21T23:22:14.430Z\",\n      \"questions\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"type\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"type\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"lastUpdatedAt\": \"2019-03-05T19:07:46.286Z\",\n      \"calculations\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"type\": \"number\",\n          \"value\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"type\": \"number\",\n          \"value\": \"string\"\n        }\n      ],\n      \"urlParameters\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"scheduling\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"fullName\": \"string\",\n            \"email\": \"mp8guGqqUpdESK@CtviyMeAiBdIQItDOPswHz.ll\",\n            \"timezone\": \"string\",\n            \"eventStartTime\": \"1976-05-10T09:32:51.143Z\",\n            \"eventEndTime\": \"1972-09-25T13:27:00.850Z\",\n            \"eventId\": \"string\",\n            \"eventUrl\": \"https://uf.jtjlBXMeg7NXeCi42CZlV\",\n            \"rescheduleOrCancelUrl\": \"http://XAPUDbYWJexcCdqaQnwe.wmlpk51eK-wj-eZi1xokW6\",\n            \"userId\": 6018,\n            \"scheduledUserEmail\": \"hYXH@lGtJlRlmyZrLHGtYSHSHhRT.cpm\",\n            \"meetingNotes\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"fullName\": \"string\",\n            \"email\": \"b6Gn7P@KSydiPklAW.uc\",\n            \"timezone\": \"string\",\n            \"eventStartTime\": \"1983-12-13T12:13:49.383Z\",\n            \"eventEndTime\": \"1983-06-13T09:19:49.600Z\",\n            \"eventId\": \"string\",\n            \"eventUrl\": \"https://zniOYweGqFv.mqkL49qT,VeVk6dLKzuVEPOiOmqcxltvV86ByvNGufJNbaQ\",\n            \"rescheduleOrCancelUrl\": \"http://bUhGlCMAQJBwAVnBNcRFLwlbEYtJu.lujW\",\n            \"userId\": 6351,\n            \"scheduledUserEmail\": \"zWCCS@TLOepBXlGghbrjtwlnUzjx.gqf\",\n            \"meetingNotes\": \"string\"\n          }\n        }\n      ],\n      \"payments\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"paymentId\": \"string\",\n            \"stripeCustomerId\": \"string\",\n            \"stripeCustomerUrl\": \"http://LopIsVE.kwKase8m-Lbz2gSO9RgsIY\",\n            \"stripePaymentUrl\": \"https://wfYuJTQbdTvmQzf.igtdac-5qKRWE6a,pGhIFPJ+UqGPv5+.SRUuZb9sdV4SQNNYD,9zC0GA.902k\",\n            \"totalAmount\": 8694,\n            \"currency\": \"string\",\n            \"email\": \"ABIwCkWnQ-qm8@iYIIGhlVYJqpchp.zu\",\n            \"discountCode\": \"string\",\n            \"status\": \"string\",\n            \"stripeSubscriptionId\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"paymentId\": \"string\",\n            \"stripeCustomerId\": \"string\",\n            \"stripeCustomerUrl\": \"https://YpGXqYAxZig.xripFbkhnLfJNRJZI8mb8dYbOPdHrF.anEf\",\n            \"stripePaymentUrl\": \"https://GRnPkQMMRmxpVcxfRvwukTQTarEqJbG.udm6t\",\n            \"totalAmount\": 5810,\n            \"currency\": \"string\",\n            \"email\": \"VRYgrpRG5n@im.bn\",\n            \"discountCode\": \"string\",\n            \"status\": \"string\",\n            \"stripeSubscriptionId\": \"string\"\n          }\n        }\n      ],\n      \"quiz\": {\n        \"score\": 9340,\n        \"maxScore\": 3248\n      },\n      \"login\": {\n        \"email\": \"tQe-yu@GxqmWKczNJdYahHio.rw\"\n      }\n    },\n    {\n      \"submissionId\": \"string\",\n      \"submissionTime\": \"2012-05-04T18:48:54.684Z\",\n      \"questions\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"type\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"type\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"lastUpdatedAt\": \"2002-03-13T22:57:05.320Z\",\n      \"calculations\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"type\": \"text\",\n          \"value\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"type\": \"text\",\n          \"value\": \"string\"\n        }\n      ],\n      \"urlParameters\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"scheduling\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"fullName\": \"string\",\n            \"email\": \"dVQ-SZP1@EqeNtN.lxy\",\n            \"timezone\": \"string\",\n            \"eventStartTime\": \"2000-05-09T07:43:26.599Z\",\n            \"eventEndTime\": \"1961-12-17T19:12:12.379Z\",\n            \"eventId\": \"string\",\n            \"eventUrl\": \"http://ewyEpLpsCIQ.juasHIjycibs1xNZeTpgI\",\n            \"rescheduleOrCancelUrl\": \"https://nZQXbUqvXcMBldGiOpAsaXSR.akTA\",\n            \"userId\": 5988,\n            \"scheduledUserEmail\": \"7W6GyVMUgCJu@jDMFEzNPnpmRyTRLqhcNAzvkloZD.vrcx\",\n            \"meetingNotes\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"fullName\": \"string\",\n            \"email\": \"sdQBE@QXytXKpDXRgspEgexXcg.qby\",\n            \"timezone\": \"string\",\n            \"eventStartTime\": \"1966-01-11T22:45:53.211Z\",\n            \"eventEndTime\": \"1952-02-24T09:01:07.767Z\",\n            \"eventId\": \"string\",\n            \"eventUrl\": \"https://ZFPGArnAGxTlNBdt.xkvUXi+F2Z4y+vbVlBuOU-6jHAd-gBMW9W.OzUQ\",\n            \"rescheduleOrCancelUrl\": \"https://jlCf.daxAjL9ZpvA9mjmxUN-UX2Y1djVi.rZjFh4YoJuJlbx0EfPMo2TorYkZumZFOZTUCyFW7kcuuZNJWBej2\",\n            \"userId\": 6815,\n            \"scheduledUserEmail\": \"eS4J0rAgkU@qxiBodosnRuWfsGtrUyPOjqILzpPjD.cch\",\n            \"meetingNotes\": \"string\"\n          }\n        }\n      ],\n      \"payments\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"paymentId\": \"string\",\n            \"stripeCustomerId\": \"string\",\n            \"stripeCustomerUrl\": \"https://nVfXXUtgIFjCUYxwelCRThPQxiBCSxcg.nbHH10Fo7GAegS7IHfK1NyFe6Ua1r4yL6QJvgsYIli-VtMngbWccPPI1iFX+oLl7n-XZkd6fwivgwpEsBg\",\n            \"stripePaymentUrl\": \"http://sgUeKiItFMVFVTO.ckthlqvfzTEmHRkblsG-9\",\n            \"totalAmount\": 7853,\n            \"currency\": \"string\",\n            \"email\": \"Nj-nkz@lKNRsWRgQQJjjdxjEpgklpqhLx.dzs\",\n            \"discountCode\": \"string\",\n            \"status\": \"string\",\n            \"stripeSubscriptionId\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"value\": {\n            \"paymentId\": \"string\",\n            \"stripeCustomerId\": \"string\",\n            \"stripeCustomerUrl\": \"http://CzemCoaXYTHVjwcqGRPkCIFRRtUmJBrXl.ejorgPj3E6UHF6vhCrP8sUAkeliZJFadxb6oX9dDJYtRqxHbG-xRh\",\n            \"stripePaymentUrl\": \"https://DiZTPHzf.hneHwfNGqNPi1FY8UvTsUfBkbT.9lY6MMvJXwRJ\",\n            \"totalAmount\": 7803,\n            \"currency\": \"string\",\n            \"email\": \"12NBmCoux3e1@eFDUIuWyum.ldvo\",\n            \"discountCode\": \"string\",\n            \"status\": \"string\",\n            \"stripeSubscriptionId\": \"string\"\n          }\n        }\n      ],\n      \"quiz\": {\n        \"score\": 913,\n        \"maxScore\": 3082\n      },\n      \"login\": {\n        \"email\": \"rlRP6@DdpUecdYU.rjkx\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da133003-f3bd-4fe0-a7a9-ac0d7193a4a6",
+          "name": "Get submission by ID",
+          "request": {
+            "name": "Get submission by ID",
+            "description": {
+              "content": "Returns a single submission by its ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                ":formId",
+                "submissions",
+                ":submissionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeEditLink",
+                  "value": "<boolean>",
+                  "description": "Pass true to include a link to edit the submission as 'editLink'"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "formId",
+                  "description": "(Required) The public identifier of the form"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "submissionId",
+                  "description": "(Required) The identifier of the submission"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f630f7f3-8b91-424f-93a6-1ae4de3af00e",
+              "name": "Single submission",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    ":formId",
+                    "submissions",
+                    ":submissionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeEditLink",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "formId",
+                      "description": "(Required) The public identifier of the form"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The identifier of the submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"submission\": {\n    \"submissionId\": \"string\",\n    \"submissionTime\": \"1990-07-07T09:10:34.244Z\",\n    \"questions\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"value\": {}\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"value\": {}\n      }\n    ],\n    \"lastUpdatedAt\": \"1976-06-20T22:22:22.629Z\",\n    \"calculations\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"number\",\n        \"value\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"number\",\n        \"value\": \"string\"\n      }\n    ],\n    \"urlParameters\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"scheduling\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"value\": {\n          \"fullName\": \"string\",\n          \"email\": \"phEzVroqNl@cxlUdmSzjLzqzmx.cnyr\",\n          \"timezone\": \"string\",\n          \"eventStartTime\": \"1968-03-22T00:28:41.765Z\",\n          \"eventEndTime\": \"1993-01-28T02:34:03.677Z\",\n          \"eventId\": \"string\",\n          \"eventUrl\": \"http://wGKTqJUy.mukrtfbFnX8g.aXikV9hiTDetjIIljw6hvQi9zRdKLQMy2mwPVcv9Z,UHYBtRKaqk\",\n          \"rescheduleOrCancelUrl\": \"http://rSQltwaVZeeHBXOQQypTreRw.zftbUjynblAQ,50rCcU8yRkxRYThyZgZI,5WlQOpevhCBgEOmz.dSBgu2I6BqWCunOMnkE4R79Qc1yN\",\n          \"userId\": 5344,\n          \"scheduledUserEmail\": \"6q7U@HRNbHLrOLpre.uqh\",\n          \"meetingNotes\": \"string\"\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"value\": {\n          \"fullName\": \"string\",\n          \"email\": \"XDn@yOOhQIVJLtRZCaCTtTkhYoaz.mk\",\n          \"timezone\": \"string\",\n          \"eventStartTime\": \"1986-03-13T16:46:53.408Z\",\n          \"eventEndTime\": \"1989-08-25T06:43:58.160Z\",\n          \"eventId\": \"string\",\n          \"eventUrl\": \"https://vrkfeinSUBFnrnsjxYHOXcJk.hbtnc1Za7znNln1DILQ\",\n          \"rescheduleOrCancelUrl\": \"https://LPEtqaa.daxood371\",\n          \"userId\": 1524,\n          \"scheduledUserEmail\": \"W4ay@TYRMpFQxI.zk\",\n          \"meetingNotes\": \"string\"\n        }\n      }\n    ],\n    \"payments\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"value\": {\n          \"paymentId\": \"string\",\n          \"stripeCustomerId\": \"string\",\n          \"stripeCustomerUrl\": \"http://OKTcqDEryXZQbZiPakMGXrvbFBlBCTzv.yxlzqBo6dd0hiF1fG7\",\n          \"stripePaymentUrl\": \"http://lNPFrpk.cimvrmLbOkPk\",\n          \"totalAmount\": 2865,\n          \"currency\": \"string\",\n          \"email\": \"ATiSY@MjBHYLaJinDSVeYQoIyIoGe.xbk\",\n          \"discountCode\": \"string\",\n          \"status\": \"string\",\n          \"stripeSubscriptionId\": \"string\"\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"value\": {\n          \"paymentId\": \"string\",\n          \"stripeCustomerId\": \"string\",\n          \"stripeCustomerUrl\": \"https://gtWTRWiEmUbvQCpkOmnxdoiMNuLJXcvUJ.qzrer8cbP6zBxDzENkVK\",\n          \"stripePaymentUrl\": \"http://SYyEInwbMVrKcqty.saN.vb2AvWMfp7gu\",\n          \"totalAmount\": 7269,\n          \"currency\": \"string\",\n          \"email\": \"micBNwme@WpGNKSMXIvVjSiOiPqxoJgR.usfb\",\n          \"discountCode\": \"string\",\n          \"status\": \"string\",\n          \"stripeSubscriptionId\": \"string\"\n        }\n      }\n    ],\n    \"quiz\": {\n      \"score\": 9986,\n      \"maxScore\": 6382\n    },\n    \"login\": {\n      \"email\": \"bY8DHTfNU@QhlJDCJYaCHIHJH.xf\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "18a3a1b6-9b39-49ef-87f4-004248d1517c",
+          "name": "Delete submission by ID",
+          "request": {
+            "name": "Delete submission by ID",
+            "description": {
+              "content": "Deletes a submission by its ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                ":formId",
+                "submissions",
+                ":submissionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "formId",
+                  "description": "(Required) The public identifier of the form"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "submissionId",
+                  "description": "(Required) The identifier of the submission"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "faa5fb19-a194-47f4-8600-726ce7a2cb07",
+              "name": "Submission deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    ":formId",
+                    "submissions",
+                    ":submissionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "formId",
+                      "description": "(Required) The public identifier of the form"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "submissionId",
+                      "description": "(Required) The identifier of the submission"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.fillout.com/v1/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4104ac27-662b-4c39-8228-750c8e9dbdd8",
+    "name": "Fillout REST Forms API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A REST API for managing forms, submissions, and webhooks in Fillout\n\nOpenAPI 3.1 spec mirrored from the public Fillout REST API specification at https://fillout.com/help/openapi.json.",
+      "type": "text/plain"
+    }
+  }
+}

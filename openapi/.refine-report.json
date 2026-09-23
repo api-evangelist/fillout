@@ -1,8 +1,7 @@
 {
   "provider": "fillout",
   "sources": [
-    "fillout-forms-api-openapi.yml",
-    "fillout-webhook-api-openapi.yml"
+    "_original/fillout-openapi.yml"
   ],
   "outputs": [
     "fillout-forms-api-openapi.yml",
@@ -11,6 +10,23 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "fillout-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "fillout-openapi.yml: tagged paths GET /forms -> Forms",
+    "fillout-openapi.yml: tagged paths GET /forms/{formId} -> Forms",
+    "fillout-openapi.yml: tagged paths GET /forms/{formId}/submissions -> Forms",
+    "fillout-openapi.yml: tagged paths POST /forms/{formId}/submissions -> Forms",
+    "fillout-openapi.yml: tagged paths GET /forms/{formId}/submissions/{submissionId} -> Forms",
+    "fillout-openapi.yml: tagged paths DELETE /forms/{formId}/submissions/{submissionId} -> Forms",
+    "fillout-openapi.yml: tagged paths POST /webhook/create -> Webhook",
+    "fillout-openapi.yml: tagged paths POST /webhook/delete -> Webhook",
+    "fillout-openapi.yml: declared missing tag: Forms",
+    "fillout-openapi.yml: declared missing tag: Webhook",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "fillout-forms-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fillout-webhook-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

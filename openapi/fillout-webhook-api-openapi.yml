@@ -56,22 +56,6 @@ paths:
       - Webhook
 components:
   schemas:
-    CreateWebhookResponse:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: The webhook ID
-      required:
-      - id
-    RemoveWebhookRequest:
-      type: object
-      properties:
-        webhookId:
-          type: string
-          description: The ID of the webhook you received when you created it
-      required:
-      - webhookId
     CreateWebhookRequest:
       type: object
       properties:
@@ -85,6 +69,22 @@ components:
       required:
       - formId
       - url
+    RemoveWebhookRequest:
+      type: object
+      properties:
+        webhookId:
+          type: string
+          description: The ID of the webhook you received when you created it
+      required:
+      - webhookId
+    CreateWebhookResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The webhook ID
+      required:
+      - id
   securitySchemes:
     bearerAuth:
       type: http

@@ -212,15 +212,22 @@ paths:
       - Forms
 components:
   schemas:
-    LoginResponse:
+    PaymentResponse:
       type: object
       properties:
-        email:
+        id:
           type: string
-          format: email
-          description: Verified email address
+          description: Identifier of the payment field
+        name:
+          type: string
+          description: Name of the payment field
+        value:
+          $ref: '#/components/schemas/PaymentValue'
+          description: Payment details
       required:
-      - email
+      - id
+      - name
+      - value
     UrlParameterResponse:
       type: object
       properties:
@@ -237,66 +244,6 @@ components:
       - id
       - name
       - value
-    CreateSubmissionsResponse:
-      type: object
-      properties:
-        submissions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Submission'
-          description: List of created submissions
-      required:
-      - submissions
-    PaymentValue:
-      type: object
-      properties:
-        paymentId:
-          type: string
-          description: Stripe payment ID
-        stripeCustomerId:
-          type: string
-          description: Stripe customer ID (optional)
-        stripeCustomerUrl:
-          type: string
-          format: uri
-          description: URL to Stripe customer dashboard (optional)
-        stripePaymentUrl:
-          type: string
-          format: uri
-          description: URL to Stripe payment dashboard (optional)
-        totalAmount:
-          type: integer
-          description: Total amount in cents (optional)
-        currency:
-          type: string
-          description: Currency code (optional)
-        email:
-          type: string
-          format: email
-          description: Customer email (optional)
-        discountCode:
-          type: string
-          description: Discount code used (optional)
-        status:
-          type: string
-          description: Payment status (optional)
-        stripeSubscriptionId:
-          type: string
-          description: Stripe subscription ID (optional)
-      required:
-      - paymentId
-    PaymentField:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Identifier for the payment field
-        name:
-          type: string
-          description: Name of the payment field
-      required:
-      - id
-      - name
     FormSummary:
       type: object
       properties:
@@ -309,47 +256,6 @@ components:
       required:
       - name
       - formId
-    FormMetadata:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The public identifier of the form
-        name:
-          type: string
-          description: The name of the form
-        questions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Question'
-          description: List of questions in the form
-        calculations:
-          type: array
-          items:
-            $ref: '#/components/schemas/Calculation'
-          description: List of calculations in the form
-        urlParameters:
-          type: array
-          items:
-            $ref: '#/components/schemas/UrlParameter'
-          description: List of URL parameters
-        scheduling:
-          type: array
-          items:
-            $ref: '#/components/schemas/SchedulingField'
-          description: List of scheduling fields (if using Fillout Scheduling)
-        payments:
-          type: array
-          items:
-            $ref: '#/components/schemas/PaymentField'
-          description: List of payment fields (if using Fillout Payments)
-        quiz:
-          $ref: '#/components/schemas/QuizConfig'
-          description: Quiz configuration (only defined if quiz mode is enabled)
-      required:
-      - id
-      - name
-      - questions
     SchedulingValue:
       type: object
       properties:
@@ -398,58 +304,65 @@ components:
       - timezone
       - eventStartTime
       - eventEndTime
-    CreateSubmissionData:
+    QuizConfig:
       type: object
       properties:
-        questions:
-          type: array
-          items:
-            $ref: '#/components/schemas/CreateQuestionResponse'
-          description: List of question responses (required)
-        urlParameters:
-          type: array
-          items:
-            $ref: '#/components/schemas/UrlParameterResponse'
-          description: List of URL parameter values (optional)
-        submissionTime:
-          type: string
-          format: date-time
-          description: When the submission was made (optional)
-        lastUpdatedAt:
-          type: string
-          format: date-time
-          description: When the submission was last updated (optional)
-        scheduling:
-          type: array
-          items:
-            $ref: '#/components/schemas/CreateSchedulingResponse'
-          description: List of scheduling responses (optional)
-        payments:
-          type: array
-          items:
-            $ref: '#/components/schemas/CreatePaymentResponse'
-          description: List of payment responses (optional)
-        login:
-          $ref: '#/components/schemas/LoginResponse'
-          description: Login information (optional)
+        enabled:
+          type: boolean
+          description: Whether quiz mode is enabled
       required:
-      - questions
-    SchedulingResponse:
+      - enabled
+    FormMetadata:
       type: object
       properties:
         id:
           type: string
-          description: Identifier of the scheduling field
+          description: The public identifier of the form
         name:
           type: string
-          description: Name of the scheduling field
-        value:
-          $ref: '#/components/schemas/SchedulingValue'
-          description: Scheduling details
+          description: The name of the form
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Question'
+          description: List of questions in the form
+        calculations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Calculation'
+          description: List of calculations in the form
+        urlParameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/UrlParameter'
+          description: List of URL parameters
+        scheduling:
+          type: array
+          items:
+            $ref: '#/components/schemas/SchedulingField'
+          description: List of scheduling fields (if using Fillout Scheduling)
+        payments:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentField'
+          description: List of payment fields (if using Fillout Payments)
+        quiz:
+          $ref: '#/components/schemas/QuizConfig'
+          description: Quiz configuration (only defined if quiz mode is enabled)
       required:
       - id
       - name
-      - value
+      - questions
+    CreateSubmissionsResponse:
+      type: object
+      properties:
+        submissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Submission'
+          description: List of created submissions
+      required:
+      - submissions
     Question:
       type: object
       properties:
@@ -505,54 +418,222 @@ components:
       - id
       - name
       - type
-    QuizResponse:
-      type: object
-      properties:
-        score:
-          type: integer
-          description: Quiz score
-        maxScore:
-          type: integer
-          description: Maximum possible score
-      required:
-      - score
-      - maxScore
-    SingleSubmissionResponse:
-      type: object
-      properties:
-        submission:
-          $ref: '#/components/schemas/Submission'
-          description: The submission data
-      required:
-      - submission
-    QuestionResponse:
+    CreateQuestionResponse:
       type: object
       properties:
         id:
           type: string
           description: Identifier of the question
-        name:
-          type: string
-          description: The question text
-        type:
-          type: string
-          description: The type of the question
         value:
           description: The response value
+      required:
+      - id
+      - value
+    CreateSubmissionsRequest:
+      type: object
+      properties:
+        submissions:
+          type: array
+          maxItems: 10
+          items:
+            $ref: '#/components/schemas/CreateSubmissionData'
+          description: List of submissions to create (maximum 10)
+      required:
+      - submissions
+    UrlParameter:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier for the URL parameter
+        name:
+          type: string
+          description: Name of the URL parameter
+      required:
+      - id
+      - name
+    Submission:
+      type: object
+      properties:
+        submissionId:
+          type: string
+          description: Unique identifier for the submission
+        submissionTime:
+          type: string
+          format: date-time
+          description: When the submission was made
+        lastUpdatedAt:
+          type: string
+          format: date-time
+          description: When the submission was last updated
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuestionResponse'
+          description: List of question responses
+        calculations:
+          type: array
+          items:
+            $ref: '#/components/schemas/CalculationResponse'
+          description: List of calculation responses
+        urlParameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/UrlParameterResponse'
+          description: List of URL parameter values
+        scheduling:
+          type: array
+          items:
+            $ref: '#/components/schemas/SchedulingResponse'
+          description: List of scheduling responses (if using Fillout Scheduling)
+        payments:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentResponse'
+          description: List of payment responses (if using Fillout Payments)
+        quiz:
+          $ref: '#/components/schemas/QuizResponse'
+          description: Quiz results (if form is configured as quiz)
+        login:
+          $ref: '#/components/schemas/LoginResponse'
+          description: Login information (if using login page)
+      required:
+      - submissionId
+      - submissionTime
+      - questions
+    Calculation:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the calculation
+        name:
+          type: string
+          description: The name of the calculation
+        type:
+          type: string
+          enum:
+          - number
+          - text
+          - duration
+          description: The type of the calculation
+      required:
+      - id
+      - name
+      - type
+    CreateSubmissionData:
+      type: object
+      properties:
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateQuestionResponse'
+          description: List of question responses (required)
+        urlParameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/UrlParameterResponse'
+          description: List of URL parameter values (optional)
+        submissionTime:
+          type: string
+          format: date-time
+          description: When the submission was made (optional)
+        lastUpdatedAt:
+          type: string
+          format: date-time
+          description: When the submission was last updated (optional)
+        scheduling:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateSchedulingResponse'
+          description: List of scheduling responses (optional)
+        payments:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreatePaymentResponse'
+          description: List of payment responses (optional)
+        login:
+          $ref: '#/components/schemas/LoginResponse'
+          description: Login information (optional)
+      required:
+      - questions
+    CreatePaymentValue:
+      type: object
+      properties:
+        paymentId:
+          type: string
+          description: Stripe payment ID
+        stripeCustomerId:
+          type: string
+          description: Stripe customer ID (optional)
+        stripeCustomerUrl:
+          type: string
+          format: uri
+          description: URL to Stripe customer dashboard (optional)
+        stripePaymentUrl:
+          type: string
+          format: uri
+          description: URL to Stripe payment dashboard (optional)
+        totalAmount:
+          type: integer
+          description: Total amount in cents (optional)
+        currency:
+          type: string
+          description: Currency code (optional)
+        email:
+          type: string
+          format: email
+          description: Customer email (optional)
+        status:
+          type: string
+          description: Payment status (optional)
+        stripeSubscriptionId:
+          type: string
+          description: Stripe subscription ID (optional)
+      required:
+      - paymentId
+    CalculationResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier of the calculation
+        name:
+          type: string
+          description: Name of the calculation
+        type:
+          type: string
+          enum:
+          - number
+          - text
+          - duration
+          description: Type of the calculation
+        value:
+          type: string
+          description: The calculated value
       required:
       - id
       - name
       - type
       - value
-    CreatePaymentResponse:
+    LoginResponse:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          description: Verified email address
+      required:
+      - email
+    CreateSchedulingResponse:
       type: object
       properties:
         id:
           type: string
-          description: Identifier of the payment field
+          description: Identifier of the scheduling field
         value:
-          $ref: '#/components/schemas/CreatePaymentValue'
-          description: Payment details
+          $ref: '#/components/schemas/CreateSchedulingValue'
+          description: Scheduling details
       required:
       - id
       - value
@@ -604,118 +685,72 @@ components:
       - eventStartTime
       - eventEndTime
       - timezone
-    Submission:
-      type: object
-      properties:
-        submissionId:
-          type: string
-          description: Unique identifier for the submission
-        submissionTime:
-          type: string
-          format: date-time
-          description: When the submission was made
-        lastUpdatedAt:
-          type: string
-          format: date-time
-          description: When the submission was last updated
-        questions:
-          type: array
-          items:
-            $ref: '#/components/schemas/QuestionResponse'
-          description: List of question responses
-        calculations:
-          type: array
-          items:
-            $ref: '#/components/schemas/CalculationResponse'
-          description: List of calculation responses
-        urlParameters:
-          type: array
-          items:
-            $ref: '#/components/schemas/UrlParameterResponse'
-          description: List of URL parameter values
-        scheduling:
-          type: array
-          items:
-            $ref: '#/components/schemas/SchedulingResponse'
-          description: List of scheduling responses (if using Fillout Scheduling)
-        payments:
-          type: array
-          items:
-            $ref: '#/components/schemas/PaymentResponse'
-          description: List of payment responses (if using Fillout Payments)
-        quiz:
-          $ref: '#/components/schemas/QuizResponse'
-          description: Quiz results (if form is configured as quiz)
-        login:
-          $ref: '#/components/schemas/LoginResponse'
-          description: Login information (if using login page)
-      required:
-      - submissionId
-      - submissionTime
-      - questions
-    CalculationResponse:
+    SchedulingResponse:
       type: object
       properties:
         id:
           type: string
-          description: Identifier of the calculation
+          description: Identifier of the scheduling field
         name:
           type: string
-          description: Name of the calculation
-        type:
-          type: string
-          enum:
-          - number
-          - text
-          - duration
-          description: Type of the calculation
+          description: Name of the scheduling field
         value:
-          type: string
-          description: The calculated value
+          $ref: '#/components/schemas/SchedulingValue'
+          description: Scheduling details
       required:
       - id
       - name
-      - type
       - value
-    Calculation:
+    SingleSubmissionResponse:
+      type: object
+      properties:
+        submission:
+          $ref: '#/components/schemas/Submission'
+          description: The submission data
+      required:
+      - submission
+    SubmissionsResponse:
+      type: object
+      properties:
+        responses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Submission'
+          description: List of submissions
+        totalResponses:
+          type: integer
+          description: Total number of submissions matching given parameters
+        pageCount:
+          type: integer
+          description: Total number of pages of submissions based on provided limit
+      required:
+      - responses
+      - totalResponses
+      - pageCount
+    PaymentField:
       type: object
       properties:
         id:
           type: string
-          description: Unique identifier for the calculation
+          description: Identifier for the payment field
         name:
           type: string
-          description: The name of the calculation
-        type:
-          type: string
-          enum:
-          - number
-          - text
-          - duration
-          description: The type of the calculation
+          description: Name of the payment field
       required:
       - id
       - name
-      - type
-    CreateQuestionResponse:
+    CreatePaymentResponse:
       type: object
       properties:
         id:
           type: string
-          description: Identifier of the question
+          description: Identifier of the payment field
         value:
-          description: The response value
+          $ref: '#/components/schemas/CreatePaymentValue'
+          description: Payment details
       required:
       - id
       - value
-    QuizConfig:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-          description: Whether quiz mode is enabled
-      required:
-      - enabled
     SchedulingField:
       type: object
       properties:
@@ -728,30 +763,38 @@ components:
       required:
       - id
       - name
-    CreateSubmissionsRequest:
-      type: object
-      properties:
-        submissions:
-          type: array
-          maxItems: 10
-          items:
-            $ref: '#/components/schemas/CreateSubmissionData'
-          description: List of submissions to create (maximum 10)
-      required:
-      - submissions
-    UrlParameter:
+    QuestionResponse:
       type: object
       properties:
         id:
           type: string
-          description: Identifier for the URL parameter
+          description: Identifier of the question
         name:
           type: string
-          description: Name of the URL parameter
+          description: The question text
+        type:
+          type: string
+          description: The type of the question
+        value:
+          description: The response value
       required:
       - id
       - name
-    CreatePaymentValue:
+      - type
+      - value
+    QuizResponse:
+      type: object
+      properties:
+        score:
+          type: integer
+          description: Quiz score
+        maxScore:
+          type: integer
+          description: Maximum possible score
+      required:
+      - score
+      - maxScore
+    PaymentValue:
       type: object
       properties:
         paymentId:
@@ -778,6 +821,9 @@ components:
           type: string
           format: email
           description: Customer email (optional)
+        discountCode:
+          type: string
+          description: Discount code used (optional)
         status:
           type: string
           description: Payment status (optional)
@@ -786,52 +832,6 @@ components:
           description: Stripe subscription ID (optional)
       required:
       - paymentId
-    PaymentResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Identifier of the payment field
-        name:
-          type: string
-          description: Name of the payment field
-        value:
-          $ref: '#/components/schemas/PaymentValue'
-          description: Payment details
-      required:
-      - id
-      - name
-      - value
-    SubmissionsResponse:
-      type: object
-      properties:
-        responses:
-          type: array
-          items:
-            $ref: '#/components/schemas/Submission'
-          description: List of submissions
-        totalResponses:
-          type: integer
-          description: Total number of submissions matching given parameters
-        pageCount:
-          type: integer
-          description: Total number of pages of submissions based on provided limit
-      required:
-      - responses
-      - totalResponses
-      - pageCount
-    CreateSchedulingResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Identifier of the scheduling field
-        value:
-          $ref: '#/components/schemas/CreateSchedulingValue'
-          description: Scheduling details
-      required:
-      - id
-      - value
   securitySchemes:
     bearerAuth:
       type: http

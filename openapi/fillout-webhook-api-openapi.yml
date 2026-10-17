@@ -56,19 +56,6 @@ paths:
       - Webhook
 components:
   schemas:
-    CreateWebhookRequest:
-      type: object
-      properties:
-        formId:
-          type: string
-          description: The public identifier of the form for which you want to create a webhook
-        url:
-          type: string
-          format: uri
-          description: The endpoint where you'd like to listen for submissions
-      required:
-      - formId
-      - url
     RemoveWebhookRequest:
       type: object
       properties:
@@ -85,6 +72,19 @@ components:
           description: The webhook ID
       required:
       - id
+    CreateWebhookRequest:
+      type: object
+      properties:
+        formId:
+          type: string
+          description: The public identifier of the form for which you want to create a webhook
+        url:
+          type: string
+          format: uri
+          description: The endpoint where you'd like to listen for submissions
+      required:
+      - formId
+      - url
   securitySchemes:
     bearerAuth:
       type: http

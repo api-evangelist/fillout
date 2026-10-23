@@ -837,3 +837,9 @@ components:
       type: http
       scheme: bearer
       description: 'Enter your [Fillout API key](https://build.fillout.com/home/settings/developer). Format: Bearer <api_key>'
+x-provenance:
+  method: harvested
+  publisher: Fillout
+  source: https://www.fillout.com/help/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)

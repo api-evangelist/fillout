@@ -1,4 +1,4 @@
-# Fillout (fillout)
+# Fillout
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,62 +66,128 @@
 
 Fillout is a form builder with deep native integrations into Airtable, Notion, Salesforce, HubSpot and Google Sheets — focused on connected data workflows. The Fillout REST API exposes forms and submissions endpoints under /v1/api/. Bearer-token authentication via API keys generated in the Fillout developer settings.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/fillout/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/fillout/refs/heads/main/apis.yml)
+**Areas:** Forms · Surveys · No-Code · Airtable · Notion · Salesforce · HubSpot · Workflows
 
-## Tags
+## Fillout on APIs.io
 
-- Forms
-- Surveys
-- No-Code
-- Airtable
-- Notion
-- Salesforce
-- HubSpot
-- Workflow
+Everything profiled for Fillout is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/fillout/](https://apis.io/providers/fillout/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (3)
 
-- **Created:** 2026-05-08
-- **Modified:** 2026-05-08
+- [Fillout REST API](https://apis.io/apis/fillout/rest/) — REST API for retrieving forms and submissions. Bearer API key auth. Endpoints under /v1/api/ — /forms, /forms/{formId}, /forms/{formId}/ submissions, etc.…
+- [Fillout Forms API](https://apis.io/apis/fillout/fillout-forms-api/) — The Forms API from Fillout — 4 operation(s) for forms.
+- [Fillout Webhook API](https://apis.io/apis/fillout/fillout-webhook-api/) — The Webhook API from Fillout — 2 operation(s) for webhook.
 
-## APIs
+### Published properties
 
-### Fillout REST API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-REST API for retrieving forms and submissions. Bearer API key auth. Endpoints under /v1/api/ — /forms, /forms/{formId}, /forms/{formId}/ submissions, etc. Self-hosted Fillout and the EU agent return their own base URL via the dashboard.
+#### MCP servers (1)
 
-- **Human URL:** [https://www.fillout.com/help/fillout-rest-api](https://www.fillout.com/help/fillout-rest-api)
-- **Base URL:** `https://api.fillout.com/v1/api`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [fillout](https://apis.io/servers/fillout/fillout/)
 
-- REST
-- Forms
-- Submissions
-- Bearer
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://www.fillout.com/help/fillout-rest-api)
-- [Authentication](https://build.fillout.com/home/settings/developer)
-- [SDK](https://www.npmjs.com/package/@fillout/api)
-- [Postman Collection](collections/fillout.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fillout.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Fillout Agentic Access](https://apis.io/agentic-access/fillout/fillout-agentic-access/)
 
-## Common Properties
+#### Collections (3)
 
-- [GitHub Organization](https://github.com/fillout)
-- [LinkedIn](https://www.linkedin.com/company/fillout)
+Postman and Open Collection request collections.
+
+- [Fillout REST API](https://apis.io/collections/fillout/open-fillout/)
+- [Fillout REST Forms API](https://apis.io/collections/fillout/open-fillout-forms-api/)
+- [Fillout REST Forms Webhook API](https://apis.io/collections/fillout/open-fillout-webhook-api/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Fillout Authentication](https://apis.io/security/fillout/fillout-authentication/)
+- [Fillout Domain Security](https://apis.io/security/fillout/fillout-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Fillout Plans Pricing](https://apis.io/plans/fillout/fillout-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Fillout Rate Limits](https://apis.io/rate-limits/fillout/fillout-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Fillout Finops](https://apis.io/finops/fillout/fillout-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.fillout.com/)
 - [Documentation](https://www.fillout.com/help/)
 - [Pricing](https://www.fillout.com/pricing)
-- [Help Center](https://www.fillout.com/help)
-- [Plans](plans/fillout-plans-pricing.yml)
-- [Rate Limits](rate-limits/fillout-rate-limits.yml)
-- [Fin Ops](finops/fillout-finops.yml)
-- [Integrations](https://www.fillout.com/integrations)
+- [Blog](https://www.fillout.com/blog)
+- [GitHub](https://github.com/fillout)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 29.7** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 47.4 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 35.7 |
+| Access clarity | 18.4 |
+
+**Agent readiness 42.4** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/fillout/](https://apis.io/providers/fillout/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Fillout: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/fillout/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
